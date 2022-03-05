@@ -2,115 +2,20 @@
   <div class="home">
     <!-- <h2>首页</h2> -->
     <nav-bar class="home-nav">
-      <div slot="center">购物街</div>
+      <div slot="center">Data From FakerJS</div>
     </nav-bar>
-    <home-swiper :banners="banners"></home-swiper>
-    <recommend-view :recommends="recommends"></recommend-view>
-    <feature-view></feature-view>
-    <tab-control :titles="['流行', '新款', '精选']"></tab-control>
-
-    <ul>
-      <li>test1</li>
-      <li>test2</li>
-      <li>test3</li>
-      <li>test4</li>
-      <li>test5</li>
-      <li>test6</li>
-      <li>test7</li>
-      <li>test8</li>
-      <li>test9</li>
-      <li>test10</li>
-      <li>test11</li>
-      <li>test12</li>
-      <li>test13</li>
-      <li>test14</li>
-      <li>test15</li>
-      <li>test16</li>
-      <li>test17</li>
-      <li>test18</li>
-      <li>test19</li>
-      <li>test20</li>
-      <li>test21</li>
-      <li>test22</li>
-      <li>test23</li>
-      <li>test24</li>
-      <li>test25</li>
-      <li>test26</li>
-      <li>test27</li>
-      <li>test28</li>
-      <li>test29</li>
-      <li>test30</li>
-      <li>test31</li>
-      <li>test32</li>
-      <li>test33</li>
-      <li>test34</li>
-      <li>test35</li>
-      <li>test36</li>
-      <li>test37</li>
-      <li>test38</li>
-      <li>test39</li>
-      <li>test40</li>
-      <li>test41</li>
-      <li>test42</li>
-      <li>test43</li>
-      <li>test44</li>
-      <li>test45</li>
-      <li>test46</li>
-      <li>test47</li>
-      <li>test48</li>
-      <li>test49</li>
-      <li>test50</li>
-      <li>test51</li>
-      <li>test52</li>
-      <li>test53</li>
-      <li>test54</li>
-      <li>test55</li>
-      <li>test56</li>
-      <li>test57</li>
-      <li>test58</li>
-      <li>test59</li>
-      <li>test60</li>
-      <li>test61</li>
-      <li>test62</li>
-      <li>test63</li>
-      <li>test64</li>
-      <li>test65</li>
-      <li>test66</li>
-      <li>test67</li>
-      <li>test68</li>
-      <li>test69</li>
-      <li>test70</li>
-      <li>test71</li>
-      <li>test72</li>
-      <li>test73</li>
-      <li>test74</li>
-      <li>test75</li>
-      <li>test76</li>
-      <li>test77</li>
-      <li>test78</li>
-      <li>test79</li>
-      <li>test80</li>
-      <li>test81</li>
-      <li>test82</li>
-      <li>test83</li>
-      <li>test84</li>
-      <li>test85</li>
-      <li>test86</li>
-      <li>test87</li>
-      <li>test88</li>
-      <li>test89</li>
-      <li>test90</li>
-      <li>test91</li>
-      <li>test92</li>
-      <li>test93</li>
-      <li>test94</li>
-      <li>test95</li>
-      <li>test96</li>
-      <li>test97</li>
-      <li>test98</li>
-      <li>test99</li>
-      <li>test100</li>
-    </ul>
+    <scroll class="scroll">
+      <home-swiper :banners="banners"></home-swiper>
+      <recommend-view :recommends="recommends"></recommend-view>
+      <feature-view :img="feature"></feature-view>
+      <tab-control
+        class="tab-control"
+        :titles="['流行', '新款', '精选']"
+        @tabClick="tabClick"
+      ></tab-control>
+      <goods-list :goods="goods[currentType].list"></goods-list>
+    </scroll>
+    <back-top @goTop="goTop"></back-top>
   </div>
 </template>
 
@@ -120,16 +25,26 @@ import RecommendView from './childComps/RecommendView.vue'
 import FeatureView from './childComps/FeatureView.vue'
 
 import NavBar from 'components/common/navbar/NavBar.vue'
+import Scroll from 'components/common/scroll/Scroll.vue'
 import TabControl from 'components/content/tabcontrol/TabControl.vue'
+import GoodsList from 'components/content/goods/GoodsList.vue'
+import BackTop from 'components/content/backtop/BackTop.vue'
 
-import { getHomeMultidata } from 'network/home'
+import { getHomeMultidata, getHomeGoods, getHomeFeature } from 'network/home'
 
 export default {
   name: 'Home',
   data() {
     return {
       banners: [],
-      recommends: []
+      recommends: [],
+      feature: '',
+      goods: {
+        pop: { page: 0, list: [] },
+        new: { page: 0, list: [] },
+        sell: { page: 0, list: [] }
+      },
+      currentType: 'pop'
     }
   },
   components: {
@@ -137,14 +52,50 @@ export default {
     HomeSwiper,
     RecommendView,
     FeatureView,
-    TabControl
+    TabControl,
+    GoodsList,
+    BackTop,
+    Scroll
   },
   created() {
-    getHomeMultidata().then((res) => {
-      // console.log(JSON.stringify(res))
-      this.banners = res.data.banner.list
-      this.recommends = res.data.recommend.list
-    })
+    this.getHomeMultidata()
+
+    this.getHomeGoods('pop')
+    this.getHomeGoods('new')
+    this.getHomeGoods('sell')
+
+    this.getHomeFeature()
+  },
+  methods: {
+    tabClick(index) {
+      const arr = ['pop', 'new', 'sell']
+      this.currentType = arr[index]
+    },
+    goTop() {
+      window.scrollTo(0, 0)
+      console.log('test')
+    },
+    getHomeMultidata() {
+      getHomeMultidata().then((res) => {
+        // console.log(JSON.stringify(res))
+        this.banners = res.data.banner
+        this.recommends = res.data.recommend
+      }, console.log)
+    },
+    getHomeGoods(type) {
+      const page = this.goods[type].page + 1
+
+      getHomeGoods(type, page).then((res) => {
+        // console.log(JSON.stringify(res))
+        this.goods[type].list.push(...res[type].list)
+        this.goods[type].page += 1
+      }, console.log)
+    },
+    getHomeFeature() {
+      getHomeFeature().then((res) => {
+        this.feature = res
+      }, console.log)
+    }
   }
 }
 </script>
@@ -152,7 +103,9 @@ export default {
 <style scoped>
 .home {
   padding-top: 44px;
-  padding-bottom: 56px;
+  padding-bottom: 49px;
+  height: 100vh;
+  overflow: hidden;
 }
 .home-nav {
   background-color: var(--color-tint);
@@ -163,5 +116,13 @@ export default {
   right: 0;
   top: 0;
   z-index: 9;
+}
+.tab-control {
+  /* position: sticky; */
+  /* top: 44px; */
+}
+.scroll {
+  height: calc(100%);
+  /* padding-top: 44px; */
 }
 </style>

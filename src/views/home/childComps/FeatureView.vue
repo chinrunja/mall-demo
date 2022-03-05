@@ -1,14 +1,18 @@
 <template>
   <div class="feature">
-    <a href="https://act.mogujie.com/zzlx67">
-      <img src="~assets/img/home/recommend_bg.jpg" alt=""
-    /></a>
+    <a href="#"> <img :src="img" alt="" /></a>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'FeatureView'
+  name: 'FeatureView',
+  props: {
+    img: {
+      type: String,
+      default: ''
+    }
+  }
 }
 </script>
 
