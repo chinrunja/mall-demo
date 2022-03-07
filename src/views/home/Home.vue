@@ -4,18 +4,32 @@
     <nav-bar class="home-nav">
       <div slot="center">Data From FakerJS</div>
     </nav-bar>
-    <scroll class="scroll">
+    <tab-control
+      :titles="['流行', '新款', '精选']"
+      @tabClick="tabClick"
+      ref="tabControl1"
+      v-show="isShowTabControl"
+      class="tab-control"
+    ></tab-control>
+    <scroll
+      class="scroll"
+      ref="scroll"
+      :probe-type="3"
+      :pull-up-load="true"
+      @scroll="contentScroll"
+      @pulling-up="loadMore"
+    >
       <home-swiper :banners="banners"></home-swiper>
       <recommend-view :recommends="recommends"></recommend-view>
-      <feature-view :img="feature"></feature-view>
+      <feature-view :img="feature" @getOffset="getTabOffsetTop"></feature-view>
       <tab-control
-        class="tab-control"
         :titles="['流行', '新款', '精选']"
         @tabClick="tabClick"
+        ref="tabControl2"
       ></tab-control>
-      <goods-list :goods="goods[currentType].list"></goods-list>
+      <goods-list :goods="showGoods"></goods-list>
     </scroll>
-    <back-top @goTop="goTop"></back-top>
+    <back-top @click.native="goTop" v-show="isShowTop"></back-top>
   </div>
 </template>
 
@@ -31,6 +45,7 @@ import GoodsList from 'components/content/goods/GoodsList.vue'
 import BackTop from 'components/content/backtop/BackTop.vue'
 
 import { getHomeMultidata, getHomeGoods, getHomeFeature } from 'network/home'
+import { debounce } from 'common/utils.js'
 
 export default {
   name: 'Home',
@@ -44,7 +59,12 @@ export default {
         new: { page: 0, list: [] },
         sell: { page: 0, list: [] }
       },
-      currentType: 'pop'
+      currentType: 'pop',
+      position: {},
+      isShowTop: false,
+      tabOffsetTop: 0,
+      isShowTabControl: false,
+      saveY: 0
     }
   },
   components: {
@@ -66,14 +86,44 @@ export default {
 
     this.getHomeFeature()
   },
+  mounted() {
+    const refresh = debounce(this.$refs.scroll.refresh, 500)
+    this.$bus.$on('itemImageLoad', () => {
+      // this.$refs.scroll && this.$refs.scroll.refresh()
+      refresh()
+    })
+
+    // console.log(this.$refs.tabControl2.$el)
+  },
   methods: {
     tabClick(index) {
       const arr = ['pop', 'new', 'sell']
       this.currentType = arr[index]
+      this.$refs.tabControl1.currentIndex = index
+      this.$refs.tabControl2.currentIndex = index
     },
     goTop() {
-      window.scrollTo(0, 0)
-      console.log('test')
+      // window.scrollTo(0, 0)
+      // this.$refs.scroll.scroll.scrollTo(0, 0, 500)
+      this.$refs.scroll.scrollTo(0, 20, 500)
+      // console.log('test')
+    },
+    contentScroll(position) {
+      this.position = position
+      this.isShowTop = -this.position.y > 1000
+      this.isShowTabControl = -this.position.y > this.tabOffsetTop
+    },
+    loadMore() {
+      // console.log('load more...')
+      // setTimeout(() => {
+      //   this.$refs.scroll.finishPullUp()
+      // }, 1000)
+      this.getHomeGoods(this.currentType)
+      // this.$refs.scroll.refresh()
+    },
+    getTabOffsetTop() {
+      // console.log(this.$refs.tabControl2.$el)
+      this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
     },
     getHomeMultidata() {
       getHomeMultidata().then((res) => {
@@ -89,6 +139,7 @@ export default {
         // console.log(JSON.stringify(res))
         this.goods[type].list.push(...res[type].list)
         this.goods[type].page += 1
+        this.$refs.scroll.finishPullUp()
       }, console.log)
     },
     getHomeFeature() {
@@ -96,14 +147,26 @@ export default {
         this.feature = res
       }, console.log)
     }
+  },
+  computed: {
+    showGoods() {
+      return this.goods[this.currentType].list
+    }
+  },
+  activated() {
+    this.$refs.scroll.refresh()
+    this.$refs.scroll.scrollTo(0, this.saveY, 0)
+  },
+  deactivated() {
+    this.saveY = this.$refs.scroll.getScrollY()
   }
 }
 </script>
 
 <style scoped>
 .home {
-  padding-top: 44px;
-  padding-bottom: 49px;
+  /* padding-top: 44px; */
+  /* padding-bottom: 49px; */
   height: 100vh;
   overflow: hidden;
 }
@@ -111,18 +174,25 @@ export default {
   background-color: var(--color-tint);
   color: white;
 
-  position: fixed;
+  /* position: fixed;
   left: 0;
   right: 0;
   top: 0;
-  z-index: 9;
+  z-index: 9; */
 }
 .tab-control {
-  /* position: sticky; */
-  /* top: 44px; */
+  position: relative;
+  z-index: 9;
 }
 .scroll {
-  height: calc(100%);
+  /* height: 100%; */
+  overflow: hidden;
+
+  position: absolute;
+  top: 44px;
+  bottom: 49px;
+  left: 0;
+  right: 0;
   /* padding-top: 44px; */
 }
 </style>

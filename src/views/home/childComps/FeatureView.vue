@@ -1,6 +1,6 @@
 <template>
   <div class="feature">
-    <a href="#"> <img :src="img" alt="" /></a>
+    <a href="#"> <img :src="img" alt="" @error="imgLoad" /></a>
   </div>
 </template>
 
@@ -11,6 +11,20 @@ export default {
     img: {
       type: String,
       default: ''
+    }
+  },
+  data() {
+    return {
+      isImgLoad: false
+    }
+  },
+  methods: {
+    imgLoad() {
+      if (!this.isImgLoad) {
+        // console.log('imgLoad')
+        this.$emit('getOffset')
+        this.isImgLoad = true
+      }
     }
   }
 }

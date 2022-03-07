@@ -1,6 +1,6 @@
 <template>
-  <div class="goods-item">
-    <img :src="goodsItem.show.img" :alt="goodsItem.price" />
+  <div class="goods-item" @click="goToDetail(goodsItem.id)">
+    <img :src="goodsItem.img" :alt="goodsItem.price" @error="imageLoad" />
     <div class="goods-info">
       <p>{{ goodsItem.title }}</p>
       <span class="price">{{ goodsItem.price }}</span>
@@ -18,6 +18,14 @@ export default {
       default() {
         return {}
       }
+    }
+  },
+  methods: {
+    imageLoad() {
+      this.$bus.$emit('itemImageLoad')
+    },
+    goToDetail(id) {
+      this.$router.push(`/detail/${id}`)
     }
   }
 }
