@@ -9,6 +9,8 @@
 <script>
 import BScroll from 'better-scroll'
 
+import { debounce } from 'common/utils.js'
+
 export default {
   name: 'Scroll',
   props: {
@@ -46,9 +48,13 @@ export default {
     }
 
     if (this.pullUpLoad) {
-      this.scroll.on('pullingUp', () => {
-        this.$emit('pulling-up') // 'pullingUp' can't emit method
-      })
+      this.scroll.on(
+        'pullingUp',
+        debounce(() => {
+          this.$emit('pulling-up') // 'pullingUp' can't emit method
+        }),
+        500
+      )
     }
   },
   methods: {

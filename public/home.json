@@ -1,150 +1,512 @@
 {
   "data": {
     "banner": {
-      "context": { "currentTime": 1538014774 },
-      "isEnd": true,
       "list": [
         {
-          "acm": "3.mce.2_10_1jhwa.43542.0.ccy5br4OlfK0Q.pos_0-m_454801-sd_119",
-          "height": 390,
-          "height923": 390,
-          "image": "https://s10.mogucdn.com/mlcdn/c45406/180926_45fkj8ifdj4l824l42dgf9hd0h495_750x390.jpg",
-          "image923": "https://s10.mogucdn.com/mlcdn/c45406/180926_7d5c521e0aa3h38786lkakebkjlh8_750x390.jpg",
-          "link": "https://act.mogujie.com/huanxin0001?acm=3.mce.2_10_1jhwa.43542.0.ccy5br4OlfK0Q.pos_0-m_454801-sd_119",
-          "title": "焕新女装节",
-          "width": 750,
-          "width923": 750
+          "image": "./img/flower-1.jpg",
+          "link": "#"
         },
         {
-          "acm": "3.mce.2_10_1ji16.43542.0.ccy5br4OlfK0R.pos_1-m_454889-sd_119",
-          "height": 390,
-          "height923": 390,
-          "image": "https://s10.mogucdn.com/mlcdn/c45406/180926_31eb9h75jc217k7iej24i2dd0jba3_750x390.jpg",
-          "image923": "https://s10.mogucdn.com/mlcdn/c45406/180926_14l41d2ekghbeh771g3ghgll54224_750x390.jpg",
-          "link": "https://act.mogujie.com/ruqiu00001?acm=3.mce.2_10_1ji16.43542.0.ccy5br4OlfK0R.pos_1-m_454889-sd_119",
-          "title": "入秋穿搭指南",
-          "width": 750,
-          "width923": 750
+          "image": "./img/flower-2.jpg",
+          "link": "#"
         },
         {
-          "acm": "3.mce.2_10_1jfj8.43542.0.ccy5br4OlfK0S.pos_2-m_453270-sd_119",
-          "height": 390,
-          "height923": 390,
-          "image": "https://s10.mogucdn.com/mlcdn/c45406/180919_3f62ijgkj656k2lj03dh0di4iflea_750x390.jpg",
-          "image923": "https://s10.mogucdn.com/mlcdn/c45406/180919_47iclhel8f4ld06hid21he98i93fc_750x390.jpg",
-          "link": "https://act.mogujie.com/huanji001?acm=3.mce.2_10_1jfj8.43542.0.ccy5br4OlfK0S.pos_2-m_453270-sd_119",
-          "title": "秋季护肤大作战",
-          "width": 750,
-          "width923": 750
+          "image": "./img/tulip-red.jpg",
+          "link": "#"
         },
         {
-          "acm": "3.mce.2_10_1jepe.43542.0.ccy5br4OlfK0T.pos_3-m_452733-sd_119",
-          "height": 390,
-          "height923": 390,
-          "image": "https://s10.mogucdn.com/mlcdn/c45406/180917_18l981g6clk33fbl3833ja357aaa0_750x390.jpg",
-          "image923": "https://s10.mogucdn.com/mlcdn/c45406/180917_0hgle1e2c350a57ekhbj4f10a6b03_750x390.jpg",
-          "link": "https://act.mogujie.com/liuxing00001?acm=3.mce.2_10_1jepe.43542.0.ccy5br4OlfK0T.pos_3-m_452733-sd_119",
-          "title": "流行抢先一步",
-          "width": 750,
-          "width923": 750
+          "image": "./img/tulip-yellow.jpg",
+          "link": "#"
         }
-      ],
-      "nextPage": 1
-    },
-    "dKeyword": {
-      "context": { "currentTime": 1538014774 },
-      "isEnd": true,
-      "list": [
-        {
-          "acm": "3.mce.2_10_1ag5u.6348.0.ccy5br4OlfK0P.pos_0-m_243725-sd_119",
-          "defaultKeyWord": "套装"
-        }
-      ],
-      "nextPage": 1
-    },
-    "keywords": {
-      "context": { "currentTime": 1538014774 },
-      "isEnd": true,
-      "list": [
-        {
-          "acm": "3.mce.2_10_185r2.5868.0.ccy5br4OlfK1Y.pos_0-m_190323-sd_119",
-          "is_red": "1",
-          "words": "连衣裙"
-        },
-        {
-          "acm": "3.mce.2_10_185r4.5868.0.ccy5br4OlfK1Z.pos_1-m_190324-sd_119",
-          "is_red": "0",
-          "words": "小白鞋"
-        },
-        {
-          "acm": "3.mce.2_10_185r6.5868.0.ccy5br4OlfK10.pos_2-m_190325-sd_119",
-          "is_red": "1",
-          "words": "省心套装"
-        },
-        {
-          "acm": "3.mce.2_10_185r8.5868.0.ccy5br4OlfK11.pos_3-m_190326-sd_119",
-          "is_red": "0",
-          "words": "碎花连衣裙"
-        },
-        {
-          "acm": "3.mce.2_10_185ra.5868.0.ccy5br4OlfK12.pos_4-m_190327-sd_119",
-          "is_red": "1",
-          "words": "明星同款"
-        },
-        {
-          "acm": "3.mce.2_10_185rc.5868.0.ccy5br4OlfK13.pos_5-m_190328-sd_119",
-          "is_red": "1",
-          "words": "高跟鞋"
-        },
-        {
-          "acm": "3.mce.2_10_185re.5868.0.ccy5br4OlfK14.pos_6-m_190329-sd_119",
-          "is_red": "0",
-          "words": "美妆"
-        },
-        {
-          "acm": "3.mce.2_10_185rg.5868.0.ccy5br4OlfK15.pos_7-m_190330-sd_119",
-          "is_red": "1",
-          "words": "墨镜"
-        }
-      ],
-      "nextPage": 1
+      ]
     },
     "recommend": {
-      "context": { "currentTime": 1538014774 },
-      "isEnd": true,
       "list": [
         {
-          "acm": "3.mce.2_10_1dggc.13730.0.ccy5br4OlfK0U.pos_0-m_313898-sd_119",
-          "image": "https://s10.mogucdn.com/mlcdn/c45406/180913_036dli57aah85cb82l1jj722g887g_225x225.png",
-          "link": "http://act.meilishuo.com/10dianlingquan?acm=3.mce.2_10_1dggc.13730.0.ccy5br4OlfK0U.pos_0-m_313898-sd_119",
-          "sort": 1,
-          "title": "十点抢券"
+          "image": "./img/tulip.jpg",
+          "title": "tulip"
         },
         {
-          "acm": "3.mce.2_10_1dgge.13730.0.ccy5br4OlfK0V.pos_1-m_313899-sd_119",
-          "image": "https://s10.mogucdn.com/mlcdn/c45406/180913_25e804lk773hdk695c60cai492111_225x225.png",
-          "link": "https://act.mogujie.com/tejiazhuanmai09?acm=3.mce.2_10_1dgge.13730.0.ccy5br4OlfK0V.pos_1-m_313899-sd_119",
-          "sort": 2,
-          "title": "好物特卖"
+          "image": "./img/tulip-2.jpg",
+          "title": "tulip-2"
         },
         {
-          "acm": "3.mce.2_10_1b610.13730.0.ccy5br4OlfK0W.pos_2-m_260486-sd_119",
-          "image": "https://s10.mogucdn.com/mlcdn/c45406/180913_387kgl3j21ff29lh04181iek48a6h_225x225.png",
-          "link": "http://act.meilishuo.com/neigouful001?acm=3.mce.2_10_1b610.13730.0.ccy5br4OlfK0W.pos_2-m_260486-sd_119",
-          "sort": 3,
-          "title": "内购福利"
+          "image": "./img/tulip_p.jpg",
+          "title": "tulip_p"
         },
         {
-          "acm": "3.mce.2_10_1dggg.13730.0.ccy5br4OlfK0X.pos_3-m_313900-sd_119",
-          "image": "https://s10.mogucdn.com/mlcdn/c45406/180913_8d4e5adi8llg7c47lgh2291akiec7_225x225.png",
-          "link": "http://act.meilishuo.com/wap/yxzc1?acm=3.mce.2_10_1dggg.13730.0.ccy5br4OlfK0X.pos_3-m_313900-sd_119",
-          "sort": 4,
-          "title": "初秋上新"
+          "image": "./img/flower-4.jpg",
+          "title": "flower-4"
         }
-      ],
-      "nextPage": 1
+      ]
     }
   },
-  "returnCode": "SUCCESS",
-  "success": true
+  "pop": {
+    "list": [
+      {
+        "id": "0",
+        "show": {
+          "img": "./img/bridge.jpg"
+        },
+        "title": "bridge",
+        "price": "12",
+        "cfav": "34"
+      },
+      {
+        "id": "1",
+        "show": {
+          "img": "./img/coffee.jpg"
+        },
+        "title": "coffee",
+        "price": "42",
+        "cfav": "3"
+      },
+      {
+        "id": "2",
+        "show": {
+          "img": "./img/flower-1.jpg"
+        },
+        "title": "flower-1",
+        "price": "873",
+        "cfav": "23"
+      },
+      {
+        "id": "3",
+        "show": {
+          "img": "./img/flower-2.jpg"
+        },
+        "title": "flower-2",
+        "price": "98",
+        "cfav": "231"
+      },
+      {
+        "id": "4",
+        "show": {
+          "img": "./img/klematis.jpg"
+        },
+        "title": "klematis",
+        "price": "80",
+        "cfav": "281"
+      },
+      {
+        "id": "5",
+        "show": {
+          "img": "./img/shanghai.jpg"
+        },
+        "title": "shanghai",
+        "price": "88",
+        "cfav": "66"
+      },
+      {
+        "id": "6",
+        "show": {
+          "img": "./img/tiyugongyuan.jpg"
+        },
+        "title": "playground",
+        "price": "999",
+        "cfav": "765"
+      },
+      {
+        "id": "7",
+        "show": {
+          "img": "./img/tulip-red.jpg"
+        },
+        "title": "tulip-red",
+        "price": "46",
+        "cfav": "22"
+      },
+      {
+        "id": "8",
+        "show": {
+          "img": "./img/tulip-yellow.jpg"
+        },
+        "title": "tulip-yellow",
+        "price": "24",
+        "cfav": "36"
+      },
+      {
+        "id": "9",
+        "show": {
+          "img": "./img/shanghai.jpg"
+        },
+        "title": "shangehai",
+        "price": "168",
+        "cfav": "666"
+      }
+    ]
+  },
+  "new": {
+    "list": [
+      {
+        "id": "3",
+        "show": {
+          "img": "./img/flower-2.jpg"
+        },
+        "title": "flower-2",
+        "price": "98",
+        "cfav": "231"
+      },
+      {
+        "id": "4",
+        "show": {
+          "img": "./img/klematis.jpg"
+        },
+        "title": "klematis",
+        "price": "80",
+        "cfav": "281"
+      },
+      {
+        "id": "7",
+        "show": {
+          "img": "./img/tulip-red.jpg"
+        },
+        "title": "tulip-red",
+        "price": "46",
+        "cfav": "22"
+      },
+      {
+        "id": "8",
+        "show": {
+          "img": "./img/tulip-yellow.jpg"
+        },
+        "title": "tulip-yellow",
+        "price": "24",
+        "cfav": "36"
+      },
+      {
+        "id": "9",
+        "show": {
+          "img": "./img/shanghai.jpg"
+        },
+        "title": "shangehai",
+        "price": "168",
+        "cfav": "666"
+      },
+      {
+        "id": "0",
+        "show": {
+          "img": "./img/bridge.jpg"
+        },
+        "title": "bridge",
+        "price": "12",
+        "cfav": "34"
+      },
+      {
+        "id": "1",
+        "show": {
+          "img": "./img/coffee.jpg"
+        },
+        "title": "coffee",
+        "price": "42",
+        "cfav": "3"
+      },
+      {
+        "id": "2",
+        "show": {
+          "img": "./img/flower-1.jpg"
+        },
+        "title": "flower-1",
+        "price": "873",
+        "cfav": "23"
+      }
+    ]
+  },
+  "sell": {
+    "list": [
+      {
+        "id": "7",
+        "show": {
+          "img": "./img/tulip-red.jpg"
+        },
+        "title": "tulip-red",
+        "price": "46",
+        "cfav": "22"
+      },
+      {
+        "id": "8",
+        "show": {
+          "img": "./img/tulip-yellow.jpg"
+        },
+        "title": "tulip-yellow",
+        "price": "24",
+        "cfav": "36"
+      },
+      {
+        "id": "9",
+        "show": {
+          "img": "./img/shanghai.jpg"
+        },
+        "title": "shangehai",
+        "price": "168",
+        "cfav": "666"
+      },
+      {
+        "id": "4",
+        "show": {
+          "img": "./img/klematis.jpg"
+        },
+        "title": "klematis",
+        "price": "80",
+        "cfav": "281"
+      },
+      {
+        "id": "5",
+        "show": {
+          "img": "./img/shanghai.jpg"
+        },
+        "title": "shanghai",
+        "price": "88",
+        "cfav": "66"
+      },
+      {
+        "id": "6",
+        "show": {
+          "img": "./img/tiyugongyuan.jpg"
+        },
+        "title": "playground",
+        "price": "999",
+        "cfav": "765"
+      },
+      {
+        "id": "0",
+        "show": {
+          "img": "./img/bridge.jpg"
+        },
+        "title": "bridge",
+        "price": "12",
+        "cfav": "34"
+      },
+      {
+        "id": "1",
+        "show": {
+          "img": "./img/coffee.jpg"
+        },
+        "title": "coffee",
+        "price": "42",
+        "cfav": "3"
+      }
+    ]
+  },
+  "result": {
+    "itemInfo": {
+      "title": "iteminfo-title",
+      "desc": "iteminfo-desc",
+      "price": 100,
+      "oldPrice": 299,
+      "discount": "活动价",
+      "lowNowPrice": 66,
+      "topImages": [
+        {
+          "image": "./img/tulip.jpg",
+          "title": "tulip"
+        },
+        {
+          "image": "./img/tulip-2.jpg",
+          "title": "tulip-2"
+        },
+        {
+          "image": "./img/tulip_p.jpg",
+          "title": "tulip_p"
+        },
+        {
+          "image": "./img/flower-4.jpg",
+          "title": "flower-4"
+        }
+      ]
+    },
+    "itemParams": {
+      "info": {
+        "images": ["../img/flower-1.jpg"],
+        "set": [
+          {
+            "key": "厚簿",
+            "value": "普通"
+          },
+          {
+            "key": "厂名",
+            "value": "xxx有限公司"
+          },
+          {
+            "key": "颜色",
+            "value": "藏青"
+          },
+          {
+            "key": "尺码",
+            "value": "S，M，L，XL"
+          },
+          {
+            "key": "衣长",
+            "value": "常规（51-65cm）"
+          },
+          {
+            "key": "季节",
+            "value": "秋季"
+          },
+          {
+            "key": "材质",
+            "value": "聚酯纤维"
+          },
+          {
+            "key": "款式",
+            "value": "衣裤套装"
+          },
+          {
+            "key": "风格",
+            "value": "通勤（OL）"
+          },
+          {
+            "key": "潮流",
+            "value": "日韩"
+          }
+        ]
+      },
+      "rule": {
+        "disclaimer": "***以下尺寸为实物人工测量，因测量当时不同会有1-2cm误差，相关参数仅作参考，以收到实物为准。",
+        "key": "尺码说明",
+        "tables": [
+          ["尺码", "S", "M", "L", "XL"],
+          ["胸围", "100", "104", "108", "112"],
+          ["袖长", "61", "62", "63", "64"],
+          ["裤长", "96", "97", "98", "99"],
+          ["肩宽", "36", "37", "38", "39"],
+          ["衣长", "54", "55", "56", "57"]
+        ]
+      }
+    },
+    "columns": ["销量1580", "收藏33", "24小时发货"],
+    "shopInfo": {
+      "shopLogo": "../img/mouse.jpg",
+      "name": "my-shop-name",
+      "cFans": 6888,
+      "cSells": 9999,
+      "score": [
+        {
+          "name": "描述相符",
+          "score": 4.6,
+          "isBetter": false
+        },
+        {
+          "name": "价格合理",
+          "score": 5,
+          "isBetter": true
+        },
+        {
+          "name": "满意推荐",
+          "score": 4.6,
+          "isBetter": false
+        }
+      ],
+      "cGoods": 168,
+      "services": [
+        { "name": "退货补运费" },
+        { "name": "全国包邮" },
+        { "name": "7天无理由退货" },
+        { "name": "免费包邮" }
+      ]
+    },
+    "detailInfo": {
+      "desc": "iteminfo-desc",
+      "detailImage": [
+        {
+          "key": "keyword ...",
+          "list": [
+            "../img/bridge.jpg",
+            "../img/coffee.jpg",
+            "../img/shanghai.jpg"
+          ]
+        }
+      ]
+    },
+    "rate": {
+      "cRate": 125,
+      "list": [
+        {
+          "content": "刚好合适，物美价廉，衣服面料很好，穿着很舒服，版型也好看，非常棒。",
+          "user": {
+            "avatar": "../img/mouse.jpg",
+            "uname": "user-name"
+          },
+          "images": ["../img/tulip.jpg", "../img/tulip-2.jpg"],
+          "created": 1647126885,
+          "style": "白色,M码"
+        }
+      ]
+    }
+  },
+  "recommend": {
+    "list": [
+      {
+        "id": "7",
+        "show": {
+          "img": "../img/tulip-red.jpg"
+        },
+        "title": "tulip-red",
+        "price": "46",
+        "cfav": "22"
+      },
+      {
+        "id": "8",
+        "show": {
+          "img": "../img/tulip-yellow.jpg"
+        },
+        "title": "tulip-yellow",
+        "price": "24",
+        "cfav": "36"
+      },
+      {
+        "id": "9",
+        "show": {
+          "img": "../img/shanghai.jpg"
+        },
+        "title": "shangehai",
+        "price": "168",
+        "cfav": "666"
+      },
+      {
+        "id": "4",
+        "show": {
+          "img": "../img/klematis.jpg"
+        },
+        "title": "klematis",
+        "price": "80",
+        "cfav": "281"
+      },
+      {
+        "id": "5",
+        "show": {
+          "img": "../img/shanghai.jpg"
+        },
+        "title": "shanghai",
+        "price": "88",
+        "cfav": "66"
+      },
+      {
+        "id": "6",
+        "show": {
+          "img": "../img/tiyugongyuan.jpg"
+        },
+        "title": "playground",
+        "price": "999",
+        "cfav": "765"
+      },
+      {
+        "id": "0",
+        "show": {
+          "img": "../img/bridge.jpg"
+        },
+        "title": "bridge",
+        "price": "12",
+        "cfav": "34"
+      },
+      {
+        "id": "1",
+        "show": {
+          "img": "../img/coffee.jpg"
+        },
+        "title": "coffee",
+        "price": "42",
+        "cfav": "3"
+      }
+    ]
+  }
 }

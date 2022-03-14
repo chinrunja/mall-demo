@@ -1,6 +1,6 @@
 <template>
   <div class="feature">
-    <a href="#"> <img :src="img" alt="" @error="imgLoad" /></a>
+    <a href="#"> <img :src="img" alt="" @load="imgLoad" /></a>
   </div>
 </template>
 

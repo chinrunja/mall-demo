@@ -1,9 +1,10 @@
-// import axios from 'axios'
-import { faker } from '@faker-js/faker'
+import axios from 'axios'
+// import { faker } from '@faker-js/faker'
 
-/* export function request(config) {
+export function request(config) {
   const instance = axios.create({
-    // baseURL: 'http://127.0.0.1:8080',
+    // baseURL: 'http://192.168.206.83:8080',
+    baseURL: 'http://127.0.0.1:8080',
     timeout: 5000
   })
 
@@ -26,6 +27,6 @@ import { faker } from '@faker-js/faker'
   )
 
   return instance(config)
-} */
+}
 
-export default faker
+// export default faker

@@ -2,7 +2,7 @@
   <div class="home">
     <!-- <h2>首页</h2> -->
     <nav-bar class="home-nav">
-      <div slot="center">Data From FakerJS</div>
+      <div slot="center" @click="refresh">mobile mall demo</div>
     </nav-bar>
     <tab-control
       :titles="['流行', '新款', '精选']"
@@ -45,10 +45,11 @@ import GoodsList from 'components/content/goods/GoodsList.vue'
 import BackTop from 'components/content/backtop/BackTop.vue'
 
 import { getHomeMultidata, getHomeGoods, getHomeFeature } from 'network/home'
-import { debounce } from 'common/utils.js'
+import { itemImgLoadMixin, backTopMixin } from 'common/mixin.js'
 
 export default {
   name: 'Home',
+  mixins: [itemImgLoadMixin, backTopMixin],
   data() {
     return {
       banners: [],
@@ -61,7 +62,6 @@ export default {
       },
       currentType: 'pop',
       position: {},
-      isShowTop: false,
       tabOffsetTop: 0,
       isShowTabControl: false,
       saveY: 0
@@ -86,33 +86,38 @@ export default {
 
     this.getHomeFeature()
   },
-  mounted() {
+  /* mounted() {
     const refresh = debounce(this.$refs.scroll.refresh, 500)
-    this.$bus.$on('itemImageLoad', () => {
-      // this.$refs.scroll && this.$refs.scroll.refresh()
+    this.itemImgListener = () => {
       refresh()
-    })
+    }
+    this.$bus.$on('itemImageLoad', this.itemImgListener)
+
+    // this.$bus.$on('itemImageLoad', () => {
+    // this.$refs.scroll && this.$refs.scroll.refresh()
+    //   refresh()
+    // })
 
     // console.log(this.$refs.tabControl2.$el)
-  },
+  }
+  */
   methods: {
+    refresh() {
+      // console.log(this.$router)
+      this.$router.go(0)
+    },
     tabClick(index) {
       const arr = ['pop', 'new', 'sell']
       this.currentType = arr[index]
       this.$refs.tabControl1.currentIndex = index
       this.$refs.tabControl2.currentIndex = index
     },
-    goTop() {
+    /* goTop() {
       // window.scrollTo(0, 0)
       // this.$refs.scroll.scroll.scrollTo(0, 0, 500)
       this.$refs.scroll.scrollTo(0, 20, 500)
       // console.log('test')
-    },
-    contentScroll(position) {
-      this.position = position
-      this.isShowTop = -this.position.y > 1000
-      this.isShowTabControl = -this.position.y > this.tabOffsetTop
-    },
+    }, */
     loadMore() {
       // console.log('load more...')
       // setTimeout(() => {
@@ -128,16 +133,16 @@ export default {
     getHomeMultidata() {
       getHomeMultidata().then((res) => {
         // console.log(JSON.stringify(res))
-        this.banners = res.data.banner
-        this.recommends = res.data.recommend
+        this.banners = res.data.banner.list
+        this.recommends = res.data.recommend.list
       }, console.log)
     },
     getHomeGoods(type) {
       const page = this.goods[type].page + 1
 
       getHomeGoods(type, page).then((res) => {
-        // console.log(JSON.stringify(res))
-        this.goods[type].list.push(...res[type].list)
+        // console.log(JSON.stringify(res[type].list))
+        this.goods[type].list.push(...res[type].list, ...res[type].list)
         this.goods[type].page += 1
         this.$refs.scroll.finishPullUp()
       }, console.log)
@@ -150,6 +155,7 @@ export default {
   },
   computed: {
     showGoods() {
+      // console.log(this.goods[this.currentType].list)
       return this.goods[this.currentType].list
     }
   },
@@ -159,6 +165,7 @@ export default {
   },
   deactivated() {
     this.saveY = this.$refs.scroll.getScrollY()
+    this.$bus.$off('itemImgLoad', this.itemImgListener)
   }
 }
 </script>
@@ -168,7 +175,7 @@ export default {
   /* padding-top: 44px; */
   /* padding-bottom: 49px; */
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .home-nav {
   background-color: var(--color-tint);
