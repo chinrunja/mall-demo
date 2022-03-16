@@ -5,14 +5,18 @@
 </template>
 
 <script>
+import { imgLoadMixin } from 'common/mixin.js'
+
 export default {
   name: 'FeatureView',
+  mixins: [imgLoadMixin],
   props: {
     img: {
       type: String,
       default: ''
     }
-  },
+  }
+  /*
   data() {
     return {
       isImgLoad: false
@@ -26,7 +30,7 @@ export default {
         this.isImgLoad = true
       }
     }
-  }
+  } */
 }
 </script>
 

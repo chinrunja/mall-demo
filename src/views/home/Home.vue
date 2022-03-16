@@ -19,8 +19,14 @@
       @scroll="contentScroll"
       @pulling-up="loadMore"
     >
-      <home-swiper :banners="banners"></home-swiper>
-      <recommend-view :recommends="recommends"></recommend-view>
+      <home-swiper
+        :banners="banners"
+        @getOffset="getTabOffsetTop"
+      ></home-swiper>
+      <recommend-view
+        :recommends="recommends"
+        @getOffset="getTabOffsetTop"
+      ></recommend-view>
       <feature-view :img="feature" @getOffset="getTabOffsetTop"></feature-view>
       <tab-control
         :titles="['流行', '新款', '精选']"
@@ -42,7 +48,6 @@ import NavBar from 'components/common/navbar/NavBar.vue'
 import Scroll from 'components/common/scroll/Scroll.vue'
 import TabControl from 'components/content/tabcontrol/TabControl.vue'
 import GoodsList from 'components/content/goods/GoodsList.vue'
-import BackTop from 'components/content/backtop/BackTop.vue'
 
 import { getHomeMultidata, getHomeGoods, getHomeFeature } from 'network/home'
 import { itemImgLoadMixin, backTopMixin } from 'common/mixin.js'
@@ -74,7 +79,6 @@ export default {
     FeatureView,
     TabControl,
     GoodsList,
-    BackTop,
     Scroll
   },
   created() {

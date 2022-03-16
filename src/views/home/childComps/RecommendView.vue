@@ -6,7 +6,7 @@
       class="recommend-item"
     >
       <a :href="item.link">
-        <img :src="item.image" :alt="index" />
+        <img :src="item.image" :alt="index" @load="imgLoad" />
         <div>{{ item.title }}</div>
       </a>
     </div>
@@ -14,8 +14,11 @@
 </template>
 
 <script>
+import { imgLoadMixin } from 'common/mixin.js'
+
 export default {
   name: 'RecommendView',
+  mixins: [imgLoadMixin],
   props: {
     recommends: {
       type: Array,

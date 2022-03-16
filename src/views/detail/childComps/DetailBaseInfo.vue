@@ -4,8 +4,8 @@
       {{ goods.title }} item-id: {{ $route.params.id }}
     </div>
     <div class="info-price">
-      <span class="n-price">{{ goods.newPrice }}</span>
-      <span class="o-price">{{ goods.oldPrice }}</span>
+      <span class="n-price">￥{{ goods.newPrice }}</span>
+      <span class="o-price">￥{{ goods.oldPrice }}</span>
       <span v-if="goods.discount" class="discount">{{ goods.discount }}</span>
     </div>
     <div class="info-other">

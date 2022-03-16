@@ -10,6 +10,31 @@ export function debounce(func, ms = 200) {
   }
 }
 
+export function throttle(func, wait = 500) {
+  let isThrottled = false
+  let lastTime
+  let lastFn
+
+  return function wrapper() {
+    const context = this
+    const args = arguments
+
+    if (!isThrottled) {
+      func.apply(context, args)
+      isThrottled = true
+      lastTime = Date.now()
+    } else {
+      clearTimeout(lastFn)
+      lastFn = setTimeout(() => {
+        if (Date.now() - lastTime >= wait) {
+          wrapper.apply(context, args)
+          lastTime = Date.now()
+        }
+      }, Math.max(0, wait - (Date.now() - lastTime)))
+    }
+  }
+}
+
 export function formatDate(date, fmt) {
   if (/(y+)/.test(fmt)) {
     fmt = fmt.replace(
