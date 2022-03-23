@@ -29,10 +29,8 @@ export default {
 .left,
 .right {
   width: 60px;
-  /* background-color: red; */
 }
 .center {
   flex: 1;
-  /* background-color: blue; */
 }
 </style>

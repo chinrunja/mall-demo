@@ -4,7 +4,8 @@ import {
   CHECK_ITEM,
   CHECK_ALL,
   INCREASE_NUM,
-  DECREASE_NUM
+  DECREASE_NUM,
+  REMOVE_ITEM
 } from './mutation-types'
 
 export default {
@@ -28,5 +29,8 @@ export default {
   [DECREASE_NUM](state, payload) {
     const item = state.cartList.find((obj) => obj.id === payload.id)
     item.count -= 1
+  },
+  [REMOVE_ITEM](state, payload) {
+    state.cartList = state.cartList.filter((obj) => obj.id !== payload.id)
   }
 }

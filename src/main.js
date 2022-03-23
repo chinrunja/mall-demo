@@ -11,6 +11,7 @@ import VueLazyload from 'vue-lazyload'
 Vue.config.productionTip = false
 
 Vue.prototype.$bus = new Vue()
+
 Vue.use(toast)
 Vue.use(VueLazyload, {
   loading: require('assets/img/common/loading.jpeg')

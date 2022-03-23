@@ -8,11 +8,14 @@
       <img :src="'.' + cartItem.image.image" />
     </div>
     <div class="item-info">
-      <div class="item-title">{{ cartItem.title }}</div>
+      <div class="item-title">
+        {{ cartItem.title }}
+        <button class="del-btn" @click="remove(cartItem.id)">移除</button>
+      </div>
       <div class="item-desc">{{ cartItem.desc }}</div>
       <!-- <p>item-id: {{ item.id }}</p> -->
       <div class="info-bottom">
-        <div class="item-price left">单价￥{{ cartItem.price }}</div>
+        <div class="item-price left">￥{{ cartItem.price }}</div>
         <div class="item-count right">
           数量
           <span class="operate" @click="decrease">-</span>
@@ -36,7 +39,7 @@ export default {
     CheckButton
   },
   methods: {
-    ...mapMutations(['increase_num', 'decrease_num']),
+    ...mapMutations(['increase_num', 'decrease_num', 'remove_item']),
     checkClick() {
       // this.cartItem.checked = !this.cartItem.checked
       this.$store.commit('check_item', { id: this.cartItem.id })
@@ -48,6 +51,10 @@ export default {
     },
     increase() {
       this.increase_num({ id: this.cartItem.id })
+    },
+    remove(id) {
+      this.remove_item({ id })
+      this.$toast.show('商品已从购物车移除')
     }
   }
 }
@@ -108,5 +115,14 @@ export default {
   padding: 5px;
   margin: 5px;
   background-color: #f0f0f0;
+}
+.del-btn {
+  position: absolute;
+  right: 10px;
+  font-size: 14px;
+  color: #fff;
+  background-color: var(--color-tint);
+  padding: 5px 8px;
+  border: none;
 }
 </style>

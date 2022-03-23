@@ -2,7 +2,7 @@ import { request } from './request'
 
 export function getHomeMultidata() {
   return request({
-    url: '/home.json'
+    url: 'data.json'
     // url: '/home/multidata'
   })
   // const bannerFormat = {
@@ -44,7 +44,7 @@ export function getHomeMultidata() {
 
 export function getHomeGoods(type, page) {
   return request({
-    url: '/home.json',
+    url: 'data.json',
     params: {
       type,
       page

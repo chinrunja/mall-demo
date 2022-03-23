@@ -46,15 +46,19 @@ import FeatureView from './childComps/FeatureView.vue'
 
 import NavBar from 'components/common/navbar/NavBar.vue'
 import Scroll from 'components/common/scroll/Scroll.vue'
-import TabControl from 'components/content/tabcontrol/TabControl.vue'
+// import TabControl from 'components/content/tabcontrol/TabControl.vue'
 import GoodsList from 'components/content/goods/GoodsList.vue'
 
 import { getHomeMultidata, getHomeGoods, getHomeFeature } from 'network/home'
-import { itemImgLoadMixin, backTopMixin } from 'common/mixin.js'
+import {
+  itemImgLoadMixin,
+  backTopMixin,
+  tabControlMixin
+} from 'common/mixin.js'
 
 export default {
   name: 'Home',
-  mixins: [itemImgLoadMixin, backTopMixin],
+  mixins: [itemImgLoadMixin, backTopMixin, tabControlMixin],
   data() {
     return {
       banners: [],
@@ -65,10 +69,10 @@ export default {
         new: { page: 0, list: [] },
         sell: { page: 0, list: [] }
       },
-      currentType: 'pop',
+      // currentType: 'pop',
       position: {},
       tabOffsetTop: 0,
-      isShowTabControl: false,
+      // isShowTabControl: false,
       saveY: 0
     }
   },
@@ -77,7 +81,7 @@ export default {
     HomeSwiper,
     RecommendView,
     FeatureView,
-    TabControl,
+    // TabControl,
     GoodsList,
     Scroll
   },
@@ -110,13 +114,13 @@ export default {
       // console.log(this.$router)
       this.$router.go(0)
     },
-    tabClick(index) {
+    /* tabClick(index) {
       const arr = ['pop', 'new', 'sell']
       this.currentType = arr[index]
       this.$refs.tabControl1.currentIndex = index
       this.$refs.tabControl2.currentIndex = index
     },
-    /* goTop() {
+    goTop() {
       // window.scrollTo(0, 0)
       // this.$refs.scroll.scroll.scrollTo(0, 0, 500)
       this.$refs.scroll.scrollTo(0, 20, 500)
@@ -165,7 +169,7 @@ export default {
   },
   activated() {
     this.$refs.scroll.refresh()
-    this.$refs.scroll.scrollTo(0, this.saveY, 0)
+    this.$refs.scroll.scrollTo(0, this.saveY, 10)
   },
   deactivated() {
     this.saveY = this.$refs.scroll.getScrollY()

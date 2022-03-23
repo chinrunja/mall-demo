@@ -9,7 +9,7 @@ export function getDetail(id) {
   // })
 
   return request({
-    url: '/home.json',
+    url: 'data.json',
     param: {
       id
     }
@@ -18,7 +18,7 @@ export function getDetail(id) {
 
 export function getRecommend() {
   return request({
-    url: '/home.json'
+    url: 'data.json'
   })
 }
 

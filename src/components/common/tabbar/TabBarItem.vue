@@ -47,20 +47,13 @@ export default {
 <style scoped>
 .tab-bar-item {
   margin-top: 3px;
-  /* height: 40px; */
   height: 49px;
   flex: 1;
   text-align: center;
   font-size: 13px;
   vertical-align: middle;
-  /* margin-left: 60px; */
-  /* margin-right: 60px; */
   padding: 5px;
 }
-/* .tab-bar-item:hover {
-  cursor: pointer;
-  background-color: #ff8198;
-} */
 .tab-bar-item img {
   width: 24px;
 }
